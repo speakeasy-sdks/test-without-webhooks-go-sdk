@@ -1,0 +1,33 @@
+openapi: 3.1.0
+info:
+  title: TestAPI
+  version: v1
+servers:
+  - url: http://localhost:8080
+paths:
+  /sendPet:
+    post:
+      requestBody:
+        description: Information about a new pet in the system
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet1"
+      responses:
+        "200":
+          description: Return a 200 status
+
+components:
+  schemas:
+    Pet1:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
