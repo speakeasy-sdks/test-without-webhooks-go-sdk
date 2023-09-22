@@ -16,26 +16,24 @@ go get github.com/speakeasy-sdks/test-without-webhooks-go-sdk
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
 import(
 	"context"
 	"log"
-	"github.com/speakeasy-sdks/test-without-webhooks-go-sdk"
+	testwithoutwebhooksgosdk "github.com/speakeasy-sdks/test-without-webhooks-go-sdk"
 	"github.com/speakeasy-sdks/test-without-webhooks-go-sdk/pkg/models/shared"
 )
 
 func main() {
-    s := testwithoutwebhooks.New()
+    s := testwithoutwebhooksgosdk.New()
 
     ctx := context.Background()
     res, err := s.PostSendPet(ctx, shared.Pet1{
-        ID: 548814,
-        Name: "Kelvin Sporer",
-        Tag: testwithoutwebhooks.String("corrupti"),
+        ID: 847252,
+        Name: "Sabrina Oberbrunner",
+        Tag: testwithoutwebhooksgosdk.String("magnam"),
     })
     if err != nil {
         log.Fatal(err)
@@ -55,6 +53,38 @@ func main() {
 
 * [PostSendPet](docs/sdks/testwithoutwebhooks/README.md#postsendpet)
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `nil`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+
+
+<!-- Start Go Types -->
+
+<!-- End Go Types -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

@@ -16,18 +16,18 @@ package main
 import(
 	"context"
 	"log"
-	"github.com/speakeasy-sdks/test-without-webhooks-go-sdk"
+	testwithoutwebhooksgosdk "github.com/speakeasy-sdks/test-without-webhooks-go-sdk"
 	"github.com/speakeasy-sdks/test-without-webhooks-go-sdk/pkg/models/shared"
 )
 
 func main() {
-    s := testwithoutwebhooks.New()
+    s := testwithoutwebhooksgosdk.New()
 
     ctx := context.Background()
     res, err := s.TestWithoutWebhooks.PostSendPet(ctx, shared.Pet1{
-        ID: 847252,
-        Name: "Sabrina Oberbrunner",
-        Tag: testwithoutwebhooks.String("magnam"),
+        ID: 891773,
+        Name: "Lucia Goldner",
+        Tag: testwithoutwebhooksgosdk.String("minus"),
     })
     if err != nil {
         log.Fatal(err)

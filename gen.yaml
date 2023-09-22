@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 0f4dc7d494564b62ed0526ffebf7d3cd
   docVersion: v1
-  speakeasyVersion: 1.83.0
-  generationVersion: 2.109.1
+  speakeasyVersion: 1.89.0
+  generationVersion: 2.125.1
 generation:
   comments:
     disableComments: false
@@ -14,10 +14,10 @@ generation:
   tagNamespacingDisabled: false
 features:
   go:
-    core: 2.88.0
+    core: 2.88.4
     globalServerURLs: 2.82.0
 go:
-  version: 0.1.0
+  version: 0.1.1
   clientServerStatusCodesAsErrors: true
   maxMethodParams: 0
   packageName: github.com/speakeasy-sdks/test-without-webhooks-go-sdk
