@@ -16,9 +16,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PostSendPet(ctx, shared.Pet1{
-        ID: 548814,
-        Name: "Kelvin Sporer",
-        Tag: testwithoutwebhooksgosdk.String("corrupti"),
+        ID: 794362,
+        Name: "Platinum",
+        Tag: testwithoutwebhooksgosdk.String("Fresh Washington Royce"),
     })
     if err != nil {
         log.Fatal(err)

@@ -54,6 +54,7 @@ type sdkConfiguration struct {
 	OpenAPIDocVersion string
 	SDKVersion        string
 	GenVersion        string
+	UserAgent         string
 	RetryConfig       *utils.RetryConfig
 }
 
@@ -106,6 +107,11 @@ func WithClient(client HTTPClient) SDKOption {
 		sdk.sdkConfiguration.DefaultClient = client
 	}
 }
+func withSecurity(security interface{}) func(context.Context) (interface{}, error) {
+	return func(context.Context) (interface{}, error) {
+		return &security, nil
+	}
+}
 
 func WithRetryConfig(retryConfig utils.RetryConfig) SDKOption {
 	return func(sdk *TestWithoutWebhooks) {
@@ -119,8 +125,9 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1",
-			SDKVersion:        "0.1.1",
-			GenVersion:        "2.125.1",
+			SDKVersion:        "0.2.0",
+			GenVersion:        "2.139.1",
+			UserAgent:         "speakeasy-sdk/go 0.2.0 2.139.1 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
 		},
 	}
 	for _, opt := range opts {
@@ -152,7 +159,7 @@ func (s *TestWithoutWebhooks) PostSendPet(ctx context.Context, request *shared.P
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "*/*")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
 
 	req.Header.Set("Content-Type", reqContentType)
 

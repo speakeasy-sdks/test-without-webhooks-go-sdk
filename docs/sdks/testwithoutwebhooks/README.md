@@ -1,5 +1,6 @@
 # TestWithoutWebhooks SDK
 
+
 ## Overview
 
 ### Available Operations
@@ -25,9 +26,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TestWithoutWebhooks.PostSendPet(ctx, shared.Pet1{
-        ID: 891773,
-        Name: "Lucia Goldner",
-        Tag: testwithoutwebhooksgosdk.String("minus"),
+        ID: 794362,
+        Name: "Platinum",
+        Tag: testwithoutwebhooksgosdk.String("Fresh Washington Royce"),
     })
     if err != nil {
         log.Fatal(err)
