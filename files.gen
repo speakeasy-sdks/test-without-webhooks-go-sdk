@@ -17,6 +17,7 @@ pkg/utils/requestbody.go
 pkg/utils/retries.go
 pkg/utils/security.go
 pkg/utils/utils.go
+tests/helpers.go
 pkg/models/operations/postsendpet.go
 pkg/models/shared/pet1.go
 USAGE.md
