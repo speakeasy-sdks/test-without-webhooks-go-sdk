@@ -32,7 +32,7 @@ func main() {
 	ctx := context.Background()
 	res, err := s.TestWithoutWebhooks.PostSendPet(ctx, &shared.Pet1{
 		ID:   794362,
-		Name: "Buckinghamshire",
+		Name: "string",
 	})
 	if err != nil {
 		log.Fatal(err)
