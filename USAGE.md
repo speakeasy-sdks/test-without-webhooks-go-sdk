@@ -15,7 +15,7 @@ func main() {
 	s := testwithoutwebhooksgosdk.New()
 
 	ctx := context.Background()
-	res, err := s.TestWithoutWebhooks.PostSendPet(ctx, &shared.Pet1{
+	res, err := s.PostSendPet(ctx, &shared.Pet1{
 		ID:   794362,
 		Name: "string",
 	})

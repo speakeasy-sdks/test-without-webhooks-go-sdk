@@ -1,6 +1,7 @@
 testwithoutwebhooks.go
 go.mod
 go.sum
+tests/helpers.go
 pkg/models/sdkerrors/sdkerror.go
 pkg/types/bigint.go
 pkg/types/date.go
@@ -17,9 +18,8 @@ pkg/utils/requestbody.go
 pkg/utils/retries.go
 pkg/utils/security.go
 pkg/utils/utils.go
-tests/helpers.go
-pkg/models/operations/postsendpet.go
-pkg/models/shared/pet1.go
+/pkg/models/operations/postsendpet.go
+/pkg/models/shared/pet1.go
 USAGE.md
 docs/models/operations/postsendpetresponse.md
 docs/models/shared/pet1.md
