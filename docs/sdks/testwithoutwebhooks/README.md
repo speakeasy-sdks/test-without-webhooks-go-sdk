@@ -44,10 +44,12 @@ func main() {
 | Parameter                                             | Type                                                  | Required                                              | Description                                           |
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
-| `request`                                             | [shared.Pet1](../../models/shared/pet1.md)            | :heavy_check_mark:                                    | The request object to use for the request.            |
+| `request`                                             | [shared.Pet1](../../pkg/models/shared/pet1.md)        | :heavy_check_mark:                                    | The request object to use for the request.            |
 
 
 ### Response
 
-**[*operations.PostSendPetResponse](../../models/operations/postsendpetresponse.md), error**
-
+**[*operations.PostSendPetResponse](../../pkg/models/operations/postsendpetresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
