@@ -15,10 +15,11 @@
 package main
 
 import(
-	"context"
-	"log"
 	testwithoutwebhooksgosdk "github.com/speakeasy-sdks/test-without-webhooks-go-sdk"
+	"context"
 	"github.com/speakeasy-sdks/test-without-webhooks-go-sdk/pkg/models/shared"
+	"log"
+	"net/http"
 )
 
 func main() {

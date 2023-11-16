@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
@@ -9,6 +7,7 @@ import (
 	testwithoutwebhooksgosdk "github.com/speakeasy-sdks/test-without-webhooks-go-sdk"
 	"github.com/speakeasy-sdks/test-without-webhooks-go-sdk/pkg/models/shared"
 	"log"
+	"net/http"
 )
 
 func main() {
