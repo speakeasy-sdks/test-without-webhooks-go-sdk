@@ -20,8 +20,8 @@ pkg/utils/security.go
 pkg/utils/utils.go
 /pkg/models/operations/postsendpet.go
 /pkg/models/shared/pet1.go
-USAGE.md
 docs/pkg/models/operations/postsendpetresponse.md
 docs/pkg/models/shared/pet1.md
 docs/sdks/testwithoutwebhooks/README.md
+USAGE.md
 .gitattributes
