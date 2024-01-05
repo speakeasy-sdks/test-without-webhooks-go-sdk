@@ -1,0 +1,45 @@
+lockVersion: 2.0.0
+id: 87da4873-249b-43eb-b817-1a02be33c21c
+management:
+  docChecksum: 0f4dc7d494564b62ed0526ffebf7d3cd
+  docVersion: v1
+  speakeasyVersion: internal
+  generationVersion: 2.225.2
+  releaseVersion: 0.6.1
+  configChecksum: 1fc60709c2b9bd92537cd72bb2f2e543
+  repoURL: https://github.com/speakeasy-sdks/test-without-webhooks-go-sdk.git
+  repoSubDirectory: .
+  installationURL: https://github.com/speakeasy-sdks/test-without-webhooks-go-sdk
+  published: true
+features:
+  go:
+    core: 3.3.0
+    globalServerURLs: 2.82.1
+generatedFiles:
+  - testwithoutwebhooks.go
+  - go.mod
+  - go.sum
+  - tests/helpers.go
+  - pkg/models/sdkerrors/sdkerror.go
+  - pkg/types/bigint.go
+  - pkg/types/date.go
+  - pkg/types/datetime.go
+  - pkg/types/decimal.go
+  - pkg/types/pointers.go
+  - pkg/utils/contenttype.go
+  - pkg/utils/form.go
+  - pkg/utils/headers.go
+  - pkg/utils/json.go
+  - pkg/utils/pathparams.go
+  - pkg/utils/queryparams.go
+  - pkg/utils/requestbody.go
+  - pkg/utils/retries.go
+  - pkg/utils/security.go
+  - pkg/utils/utils.go
+  - /pkg/models/operations/postsendpet.go
+  - /pkg/models/shared/pet1.go
+  - docs/pkg/models/operations/postsendpetresponse.md
+  - docs/pkg/models/shared/pet1.md
+  - docs/sdks/testwithoutwebhooks/README.md
+  - USAGE.md
+  - .gitattributes

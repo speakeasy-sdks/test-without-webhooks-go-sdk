@@ -121,8 +121,8 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 			Language:          "go",
 			OpenAPIDocVersion: "v1",
 			SDKVersion:        "0.6.1",
-			GenVersion:        "2.220.0",
-			UserAgent:         "speakeasy-sdk/go 0.6.1 2.220.0 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
+			GenVersion:        "2.225.2",
+			UserAgent:         "speakeasy-sdk/go 0.6.1 2.225.2 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
 		},
 	}
 	for _, opt := range opts {
