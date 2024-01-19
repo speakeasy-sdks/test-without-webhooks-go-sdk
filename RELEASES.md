@@ -139,3 +139,13 @@ Based on:
 - [go v0.6.2] .
 ### Releases
 - [Go v0.6.2] https://github.com/speakeasy-sdks/test-without-webhooks-go-sdk/releases/tag/v0.6.2 - .
+
+## 2024-01-19 01:34:26
+### Changes
+Based on:
+- OpenAPI Doc v1 
+- Speakeasy CLI 1.147.0 (2.237.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.6.2] .
+### Releases
+- [Go v0.6.2] https://github.com/speakeasy-sdks/test-without-webhooks-go-sdk/releases/tag/v0.6.2 - .
