@@ -28,7 +28,7 @@ func main() {
     ctx := context.Background()
     res, err := s.PostSendPet(ctx, &shared.Pet1{
         ID: 794362,
-        Name: "string",
+        Name: "<value>",
     })
     if err != nil {
         log.Fatal(err)
