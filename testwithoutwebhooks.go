@@ -122,9 +122,9 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1",
-			SDKVersion:        "0.8.0",
-			GenVersion:        "2.258.2",
-			UserAgent:         "speakeasy-sdk/go 0.8.0 2.258.2 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
+			SDKVersion:        "0.8.1",
+			GenVersion:        "2.263.3",
+			UserAgent:         "speakeasy-sdk/go 0.8.1 2.263.3 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
 			Hooks:             hooks.New(),
 		},
 	}
@@ -167,12 +167,12 @@ func (s *TestWithoutWebhooks) PostSendPet(ctx context.Context, request *shared.P
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	client := s.sdkConfiguration.DefaultClient
-
 	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
+
+	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -195,7 +195,6 @@ func (s *TestWithoutWebhooks) PostSendPet(ctx context.Context, request *shared.P
 			return nil, err
 		}
 	}
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.PostSendPetResponse{
