@@ -122,9 +122,9 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1",
-			SDKVersion:        "0.8.1",
-			GenVersion:        "2.263.3",
-			UserAgent:         "speakeasy-sdk/go 0.8.1 2.263.3 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
+			SDKVersion:        "0.8.2",
+			GenVersion:        "2.272.4",
+			UserAgent:         "speakeasy-sdk/go 0.8.2 2.272.4 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
 			Hooks:             hooks.New(),
 		},
 	}
@@ -132,12 +132,18 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 		opt(sdk)
 	}
 
-	sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.ClientInit(sdk.sdkConfiguration.DefaultClient)
-
 	// Use WithClient to override the default client if you would like to customize the timeout
 	if sdk.sdkConfiguration.DefaultClient == nil {
 		sdk.sdkConfiguration.DefaultClient = &http.Client{Timeout: 60 * time.Second}
 	}
+
+	currentServerURL, _ := sdk.sdkConfiguration.GetServerDetails()
+	serverURL := currentServerURL
+	serverURL, sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.SDKInit(currentServerURL, sdk.sdkConfiguration.DefaultClient)
+	if serverURL != currentServerURL {
+		sdk.sdkConfiguration.ServerURL = serverURL
+	}
+
 	if sdk.sdkConfiguration.SecurityClient == nil {
 		sdk.sdkConfiguration.SecurityClient = sdk.sdkConfiguration.DefaultClient
 	}
@@ -146,7 +152,11 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 }
 
 func (s *TestWithoutWebhooks) PostSendPet(ctx context.Context, request *shared.Pet1) (*operations.PostSendPetResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "post_/sendPet"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "post_/sendPet",
+		SecuritySource: nil,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := url.JoinPath(baseURL, "/sendPet")
@@ -167,12 +177,12 @@ func (s *TestWithoutWebhooks) PostSendPet(ctx context.Context, request *shared.P
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.DefaultClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.DefaultClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -182,15 +192,15 @@ func (s *TestWithoutWebhooks) PostSendPet(ctx context.Context, request *shared.P
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
