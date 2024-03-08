@@ -3,18 +3,19 @@ id: 87da4873-249b-43eb-b817-1a02be33c21c
 management:
   docChecksum: 0f4dc7d494564b62ed0526ffebf7d3cd
   docVersion: v1
-  speakeasyVersion: internal
-  generationVersion: 2.272.4
-  releaseVersion: 0.8.2
-  configChecksum: 21626973ae2a47a47a4a9c1d4dd5a460
+  speakeasyVersion: 1.204.1
+  generationVersion: 2.279.1
+  releaseVersion: 0.9.0
+  configChecksum: 2c076f55e56ea4808ca2827f6a4779c2
   repoURL: https://github.com/speakeasy-sdks/test-without-webhooks-go-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/test-without-webhooks-go-sdk
   published: true
 features:
   go:
-    core: 3.4.3
+    core: 3.4.4
     globalServerURLs: 2.82.1
+    responseFormat: 0.1.0
 generatedFiles:
   - testwithoutwebhooks.go
   - go.mod
