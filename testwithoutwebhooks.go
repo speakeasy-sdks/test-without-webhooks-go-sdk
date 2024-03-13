@@ -121,9 +121,9 @@ func New(opts ...SDKOption) *TestWithoutWebhooks {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v1",
-			SDKVersion:        "0.9.0",
-			GenVersion:        "2.279.1",
-			UserAgent:         "speakeasy-sdk/go 0.9.0 2.279.1 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
+			SDKVersion:        "0.9.1",
+			GenVersion:        "2.280.6",
+			UserAgent:         "speakeasy-sdk/go 0.9.1 2.280.6 v1 github.com/speakeasy-sdks/test-without-webhooks-go-sdk",
 			Hooks:             hooks.New(),
 		},
 	}
